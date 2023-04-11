@@ -1,13 +1,7 @@
-//
-//  CustomColor.swift
-//  ios_practice
-//
-//  Created by Unthinkable-mac-0050 on 11/04/23.
-//
-
 import Foundation
 import UIKit
+/// The Model class is responsible for holding data related to color and label.
 struct Model{
-    let color: UIColor!
-    let label: String!
+var color:UIColor
+var label:String
 }
