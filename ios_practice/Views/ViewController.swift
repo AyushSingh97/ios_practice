@@ -7,33 +7,47 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ViewDelegate {
+    
+    private let presenter = Presenter(service: Service())
+    func toggleBgColor(color: UIColor) {
+        backgroundView.backgroundColor = color
+    }
+    
+    func toggleLabel(title: String) {
+        label.text = title
+    }
+    
 
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var backgroundView: UIView!
-    weak private var _bgColor: UIColor!
     override func viewDidLoad() {
         super.viewDidLoad()
-        _bgColor = _bgColor ?? UIColor.red
-        _updateBgColor()
+        presenter.setViewDelegate(viewDelegate: self)
     }
 
     @IBAction func onToggle(_ sender: UIButton) {
-        _updateBgColor()
+        presenter.toggleColor(colorName: backgroundView.backgroundColor == UIColor.red ? "RED": "PURPLE")
+        presenter.toggleLabel(text: label.text!)
+//        _toggleColor()
+//        _toggleLabel()
     }
     
-    func _updateBgColor(){
-        _bgColor = _toggleColor(_bgColor)
-        backgroundView.backgroundColor = _bgColor
-    }
-    
-    func _toggleColor(_ currentColor: UIColor) -> UIColor {
-        if(currentColor == UIColor.purple){
-            return UIColor.red
-        }
-        else if(currentColor == UIColor.red){
-            return UIColor.purple
-        }
-        return UIColor.green
-    }
+//    func _toggleColor(){
+//        if(backgroundView.backgroundColor == UIColor.purple){
+//            backgroundView.backgroundColor = UIColor.red
+//            return
+//        }
+//        backgroundView.backgroundColor = UIColor.purple
+//        return
+//    }
+//    func _toggleLabel(){
+//        if(label.text?.uppercased() == "PURPLE"){
+//            label.text = "RED"
+//            return
+//        }
+//        label.text = "PURPLE"
+//        return
+//    }
 }
 
