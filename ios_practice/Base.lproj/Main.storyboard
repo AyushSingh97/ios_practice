@@ -46,6 +46,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hqI-qa-1a7" secondAttribute="trailing" id="lHi-fv-Gs6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bgView" destination="hqI-qa-1a7" id="ZcK-or-HxJ"/>
+                        <outlet property="toggleButton" destination="cMY-DL-nHL" id="NjZ-oV-uHf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

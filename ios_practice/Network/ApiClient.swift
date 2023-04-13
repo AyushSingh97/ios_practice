@@ -9,18 +9,31 @@ import Foundation
 import UIKit
 
 public struct ApiClient {
-    
+    static var count: Int = 0
     static func getDataFromServer( complete: @escaping (_ success: Bool, _ data: Data? )->() ){
         DispatchQueue.global().async {
+            var dummyData: Data
             sleep(2)
-            let dummyData: Data = Data(backgroundColor: colorList.randomElement()!)
-            
+            if(count % 2 == 0){
+                dummyData = Data(backgroundColor: UIColor.purple)
+            }
+            else{
+                dummyData = Data(backgroundColor: UIColor.green)
+            }
+             
+            count += 1
             // complete(false, nil)
             // sleep(2)
             complete(true, dummyData)
             // If server gives an error, use "complete(false, nil)"
         }
     }
-    
-    static var colorList: [UIColor] = [.red, .purple, .green, .blue]
+    static func getRandomColor() -> UIColor {
+         //Generate between 0 to 1
+         let red:CGFloat = CGFloat(drand48())
+         let green:CGFloat = CGFloat(drand48())
+         let blue:CGFloat = CGFloat(drand48())
+
+         return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
+    }
 }

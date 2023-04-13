@@ -7,15 +7,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, ViewDelegate {
+    
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var toggleButton: UIButton!
+    private let dataViewModel = DataViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        dataViewModel.setViewDelegate(viewDelegate: self)
     }
 
     @IBAction func onTap(_ sender: Any){
+        // If button has been pressed
+        if(!dataViewModel.isLoading()){
+            toggleButton.isEnabled = false
+            dataViewModel.toggleBackground()
+        }
+    }
+    func toggleBgColor(color: UIColor) {
         
-
-}
+        DispatchQueue.main.async {
+            self.bgView.backgroundColor = color
+            self.toggleButton.isEnabled = true
+           }
+       
+    }
 }
