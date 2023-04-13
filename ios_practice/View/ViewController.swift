@@ -9,27 +9,50 @@ import UIKit
 
 class ViewController: UIViewController, ViewDelegate {
     
-    @IBOutlet weak var bgView: UIView!
-    @IBOutlet weak var toggleButton: UIButton!
+    
+    @IBOutlet weak var newsTableViewController: UITableView!
     private let dataViewModel = DataViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         dataViewModel.setViewDelegate(viewDelegate: self)
+        newsTableViewController.dataSource = self
     }
     
     @IBAction func onTap(_ sender: Any){
         dataViewModel.toggleBackground()
     }
-    func toggleBgColor(color: UIColor) {
-        DispatchQueue.main.async {self.bgView.backgroundColor = color}
-    }
     func showError(){
-        DispatchQueue.main.async {self.showAlert("Ups, something went wrong.")}
+        DispatchQueue.main.async {
+            self.showAlert("Ups, something went wrong.")
+            
+        }
     }
     func showLoading() {
-        DispatchQueue.main.async {self.toggleButton.isEnabled = false}
+        DispatchQueue.main.async {
+            
+        }
     }
     func hideLoading() {
-        DispatchQueue.main.async {self.toggleButton.isEnabled = true}
+        DispatchQueue.main.async {
+            
+        }
     }
+}
+
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsTableViewCell else {
+            fatalError("Cell not exists in storyboard")
+        }
+        // let cellVM = dataViewModel.getCellViewModel( at: indexPath )
+//        cell.lblTitle.text = cellVM.titleText
+//        cell.lblSubTitle.text = cellVM.subTitleText
+        return cell
+    }
+    
+    
 }
