@@ -49,8 +49,11 @@ extension ViewController: UITableViewDataSource{
             fatalError("Cell not exists in storyboard")
         }
         // let cellVM = dataViewModel.getCellViewModel( at: indexPath )
-//        cell.lblTitle.text = cellVM.titleText
-//        cell.lblSubTitle.text = cellVM.subTitleText
+        cell.newsView.layer.cornerRadius = 8
+        cell.newsView.layer.shadowOffset =  CGSize(width: 0, height: 4)
+        cell.newsView.layer.shadowColor = UIColor.black.cgColor
+        cell.newsView.layer.shadowOpacity = 0.5
+        cell.newsView.layer.shadowRadius = 10
         return cell
     }
     
