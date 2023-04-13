@@ -10,6 +10,9 @@ import UIKit
 
 protocol ViewDelegate: NSObjectProtocol{
     func toggleBgColor(color: UIColor)
+    func showError()
+    func showLoading()
+    func hideLoading()
 }
 
 class DataViewModel{
@@ -23,14 +26,14 @@ class DataViewModel{
         return (self.loading == true) ? true : false
     }
     func toggleBackground(){
-        self.loading = true
+        self.viewDelegate?.showLoading()
         ApiClient.getDataFromServer { (success, data) in
+            self.viewDelegate?.hideLoading()
             if success {
                 self.viewDelegate?.toggleBgColor(color: data!.backgroundColor)
             } else {
-                self.viewDelegate?.toggleBgColor(color: .red)
+                self.viewDelegate?.showError()
             }
-            self.loading = false
         }
     }
 }

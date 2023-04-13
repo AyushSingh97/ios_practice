@@ -16,20 +16,20 @@ class ViewController: UIViewController, ViewDelegate {
         super.viewDidLoad()
         dataViewModel.setViewDelegate(viewDelegate: self)
     }
-
+    
     @IBAction func onTap(_ sender: Any){
-        // If button has been pressed
-        if(!dataViewModel.isLoading()){
-            toggleButton.isEnabled = false
-            dataViewModel.toggleBackground()
-        }
+        dataViewModel.toggleBackground()
     }
     func toggleBgColor(color: UIColor) {
-        
-        DispatchQueue.main.async {
-            self.bgView.backgroundColor = color
-            self.toggleButton.isEnabled = true
-           }
-       
+        DispatchQueue.main.async {self.bgView.backgroundColor = color}
+    }
+    func showError(){
+        DispatchQueue.main.async {self.showAlert("Ups, something went wrong.")}
+    }
+    func showLoading() {
+        DispatchQueue.main.async {self.toggleButton.isEnabled = false}
+    }
+    func hideLoading() {
+        DispatchQueue.main.async {self.toggleButton.isEnabled = true}
     }
 }
