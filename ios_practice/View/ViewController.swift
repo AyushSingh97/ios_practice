@@ -49,13 +49,43 @@ extension ViewController: UITableViewDataSource{
             fatalError("Cell not exists in storyboard")
         }
         // let cellVM = dataViewModel.getCellViewModel( at: indexPath )
-        cell.newsView.layer.cornerRadius = 8
-        cell.newsView.layer.shadowOffset =  CGSize(width: 0, height: 4)
-        cell.newsView.layer.shadowColor = UIColor.black.cgColor
-        cell.newsView.layer.shadowOpacity = 0.5
-        cell.newsView.layer.shadowRadius = 10
+//        cell.newsView.layer.cornerRadius = 8
+//        cell.newsView.layer.shadowOffset =  CGSize(width: 0, height: 4)
+//        cell.newsView.layer.shadowColor = UIColor.black.cgColor
+//        cell.newsView.layer.shadowOpacity = 0.5
+//        cell.newsView.layer.shadowRadius = 10
+        cell.contentView.layer.applySketchShadow(
+          color: .black,
+          alpha: 0.1,
+          x: 0,
+          y: 4,
+          blur: 30,
+          spread: 0)
         return cell
     }
     
     
+}
+extension CALayer {
+  func applySketchShadow(
+    color: UIColor = .black,
+    alpha: Float = 0.5,
+    x: CGFloat = 0,
+    y: CGFloat = 2,
+    blur: CGFloat = 4,
+    spread: CGFloat = 0)
+  {
+    masksToBounds = false
+    shadowColor = color.cgColor
+    shadowOpacity = alpha
+    shadowOffset = CGSize(width: x, height: y)
+    shadowRadius = blur / 2.0
+    if spread == 0 {
+      shadowPath = nil
+    } else {
+      let dx = -spread
+      let rect = bounds.insetBy(dx: dx, dy: dx)
+      shadowPath = UIBezierPath(rect: rect).cgPath
+    }
+  }
 }

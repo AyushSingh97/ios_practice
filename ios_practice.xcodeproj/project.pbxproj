@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19757CF529E821950001E9D5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF429E821950001E9D5 /* NewsTableViewCell.swift */; };
+		19757CF729E90D790001E9D5 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */; };
 		19B68C9A29E6CEFF00130EF6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B68C9929E6CEFF00130EF6 /* Data.swift */; };
 		19B68C9C29E6CF1B00130EF6 /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B68C9B29E6CF1B00130EF6 /* DataViewModel.swift */; };
 		19B68C9E29E6CFD700130EF6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B68C9D29E6CFD700130EF6 /* UIViewController+Extensions.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		19757CF429E821950001E9D5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		19B68C9929E6CEFF00130EF6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		19B68C9B29E6CF1B00130EF6 /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		19B68C9D29E6CFD700130EF6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				19B68C9D29E6CFD700130EF6 /* UIViewController+Extensions.swift */,
+				19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				19757CF529E821950001E9D5 /* NewsTableViewCell.swift in Sources */,
 				19BDF9D729D2F28500D1B3F7 /* AppDelegate.swift in Sources */,
 				19BDF9D929D2F28500D1B3F7 /* SceneDelegate.swift in Sources */,
+				19757CF729E90D790001E9D5 /* CALayer+Shadow.swift in Sources */,
 				19B68C9A29E6CEFF00130EF6 /* Data.swift in Sources */,
 				19B68C9E29E6CFD700130EF6 /* UIViewController+Extensions.swift in Sources */,
 				19B68C9C29E6CF1B00130EF6 /* DataViewModel.swift in Sources */,
