@@ -11,7 +11,9 @@ class ViewController: UIViewController, ViewDelegate {
     
     
     @IBOutlet weak var newsTableViewController: UITableView!
+    
     private let dataViewModel = DataViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataViewModel.setViewDelegate(viewDelegate: self)
@@ -48,44 +50,17 @@ extension ViewController: UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsTableViewCell else {
             fatalError("Cell not exists in storyboard")
         }
-        // let cellVM = dataViewModel.getCellViewModel( at: indexPath )
-//        cell.newsView.layer.cornerRadius = 8
-//        cell.newsView.layer.shadowOffset =  CGSize(width: 0, height: 4)
-//        cell.newsView.layer.shadowColor = UIColor.black.cgColor
-//        cell.newsView.layer.shadowOpacity = 0.5
-//        cell.newsView.layer.shadowRadius = 10
-        cell.contentView.layer.applySketchShadow(
+        cell.contentView.layer.applyShadow(
           color: .black,
           alpha: 0.1,
           x: 0,
           y: 4,
           blur: 30,
           spread: 0)
+        cell.newsMainView.layer.applyCornerRadius(radius: 12)
+        cell.newsView.layer.applyCornerRadius(radius: 8)
+//        cell.newsImage.layer.applyCornerRadius(radius: 20)
+        cell.newsImage.load(urlString: "https://ichef.bbci.co.uk/news/1024/branded_news/12856/production/_129326857_gettyimages-1163603288.jpg", placeholderImage: UIImage(named: "placeholder"))
         return cell
     }
-    
-    
-}
-extension CALayer {
-  func applySketchShadow(
-    color: UIColor = .black,
-    alpha: Float = 0.5,
-    x: CGFloat = 0,
-    y: CGFloat = 2,
-    blur: CGFloat = 4,
-    spread: CGFloat = 0)
-  {
-    masksToBounds = false
-    shadowColor = color.cgColor
-    shadowOpacity = alpha
-    shadowOffset = CGSize(width: x, height: y)
-    shadowRadius = blur / 2.0
-    if spread == 0 {
-      shadowPath = nil
-    } else {
-      let dx = -spread
-      let rect = bounds.insetBy(dx: dx, dy: dx)
-      shadowPath = UIBezierPath(rect: rect).cgPath
-    }
-  }
 }

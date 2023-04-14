@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Data {
+class News {
     var backgroundColor: UIColor
     
     init(backgroundColor: UIColor) {

@@ -10,15 +10,15 @@ import UIKit
 
 public struct ApiClient {
     static var count: Int = 0
-    static func getDataFromServer( complete: @escaping (_ success: Bool, _ data: Data? )->() ){
+    static func getDataFromServer( complete: @escaping (_ success: Bool, _ data: News? )->() ){
         DispatchQueue.global().async {
-            var dummyData: Data
+            var dummyData: News
             sleep(2)
             if(count % 2 == 0){
-                dummyData = Data(backgroundColor: UIColor.purple)
+                dummyData = News(backgroundColor: UIColor.purple)
             }
             else{
-                dummyData = Data(backgroundColor: UIColor.green)
+                dummyData = News(backgroundColor: UIColor.green)
             }
              
             count += 1

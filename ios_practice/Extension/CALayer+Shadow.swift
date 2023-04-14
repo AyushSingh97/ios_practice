@@ -16,7 +16,7 @@ extension CALayer {
     blur: CGFloat = 4,
     spread: CGFloat = 0)
   {
-    masksToBounds = false
+    masksToBounds = true
     shadowColor = color.cgColor
     shadowOpacity = alpha
     shadowOffset = CGSize(width: x, height: y)
@@ -29,4 +29,8 @@ extension CALayer {
       shadowPath = UIBezierPath(rect: rect).cgPath
     }
   }
+    func applyCornerRadius(radius: CGFloat) {
+            cornerRadius = radius
+            masksToBounds = true
+        }
 }
