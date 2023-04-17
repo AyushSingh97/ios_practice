@@ -66,7 +66,7 @@ class DataViewModel{
         cell.title.text = news.title
         cell.sourceName.text = news.source
         cell.timeStamp.text = news.timeStamp
-        cell.newsImage.load(urlString: news.urlImage, placeholderImage: UIImage(named: "placeholder"))
+       cell.newsImage.load(urlString: news.urlImage, placeholderImage: UIImage(named: "PlaceholderImage"))
     }
     // This method returns the number of cells to be displayed in the tableview
     var numberOfCells: Int {
@@ -82,8 +82,13 @@ class DataViewModel{
     func createCell(newsResponseModel: NewsResponseModel){
         self.newsResponseModelList = []
         var vms = [NewsUiModel]()
+        var count: Int = 0
         for news in newsResponseModel.articles {
-            vms.append(NewsUiModel(timeStamp: news.publishedAt.description, title: news.title, source: news.source.name, urlImage: news.urlToImage?.description ?? ""))
+            count+=1
+            print("///////////////////////")
+            print("index: \(count) url: \(news.url?.description ?? "")")
+            print("///////////////////////")
+            vms.append(NewsUiModel(timeStamp: news.publishedAt.description, title: news.title, source: news.source.name, urlImage: news.urlToImage?.description ?? "", sourceUrl: news.url?.description ?? ""))
         }
         newsUiModelList = vms
     }

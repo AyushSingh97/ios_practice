@@ -10,30 +10,25 @@ import WebKit
 
 class NewsDetailViewController: UIViewController {
 
-    var webView: WKWebView!
+    
+    @IBOutlet weak var webView: WKWebView!
+    var urlString: String = ""
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         loadWebView()
     }
     
-    override func loadView() {
-        super.loadView()
-        configureWebView()
-    }
-    
-
-    func configureWebView(){
-        let webConfiguration = WKWebViewConfiguration()
-                webView = WKWebView(frame: .zero, configuration: webConfiguration)
-                webView.uiDelegate = self
-                view = webView
-    }
     func loadWebView(){
-        let myURL = URL(string:"https://www.apple.com")
-                let myRequest = URLRequest(url: myURL!)
-                webView.load(myRequest)
+        print("url = \(urlString)")
+        guard let myURL = URL(string:self.urlString) else{
+            return
+        }
+        let myRequest = URLRequest(url: myURL)
+        webView.load(myRequest)
     }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        webView.frame = view.bounds
+//    }
 
 }
-extension UIViewController: WKUIDelegate{}

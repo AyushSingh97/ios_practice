@@ -9,23 +9,36 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var appbar: UINavigationItem!
     @IBOutlet weak var newsTableViewController: UITableView!
     
     private let dataViewModel = DataViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         dataViewModel.setViewDelegate(viewDelegate: self)
         newsTableViewController.dataSource = self
+        newsTableViewController.delegate = self
         dataViewModel.toggleBackground()
     }
-    
+    private func setupNavigationBar(){
+        let titleImageView = UIImageView(image: UIImage(named: "GlobalNewsIcon"))
+        
+         titleImageView.contentMode = .scaleAspectFit
+        
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 40, height: 80).offsetBy(dx: 10, dy: 0)
+         // titleImageView.backgroundColor = .red
+        
+         navigationItem.titleView = titleImageView
+    }
     @IBAction func onTap(_ sender: Any){
         dataViewModel.toggleBackground()
     }
+
 }
 
-extension ViewController: UITableViewDataSource{
+extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataViewModel.numberOfCells
     }
@@ -38,6 +51,15 @@ extension ViewController: UITableViewDataSource{
         dataViewModel.mapToUi(cell, index: indexPath.row, news: news)
         cell = beautifyCell(cell)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("//////////////////////////////")
+        print("Selected index: \(indexPath.row)")
+        print("//////////////////////////////")
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newsViewController = storyBoard.instantiateViewController(withIdentifier: "NewsDetailViewController") as! NewsDetailViewController
+        newsViewController.urlString = dataViewModel.newsUiModelList[indexPath.row].sourceUrl
+        self.present(newsViewController, animated: false)
     }
     func beautifyCell(_ cell: NewsTableViewCell) -> NewsTableViewCell{
         cell.contentView.layer.applyShadow(
