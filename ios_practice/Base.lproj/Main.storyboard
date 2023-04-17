@@ -156,7 +156,11 @@
                             <constraint firstItem="f1c-BG-fVC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uBM-II-BOi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hacker News" largeTitleDisplayMode="always" id="mQl-Rd-bSw"/>
+                    <navigationItem key="navigationItem" title="Hacker News" largeTitleDisplayMode="always" id="mQl-Rd-bSw">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="GlobalNewsIcon" style="plain" id="tfc-MR-SUG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="appbar" destination="mQl-Rd-bSw" id="lGH-9E-zVJ"/>
                         <outlet property="newsTableViewController" destination="1ho-wS-Ea6" id="PGj-xZ-LIA"/>
@@ -235,6 +239,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GlobalNewsIcon" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

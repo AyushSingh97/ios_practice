@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+        // setupNavigationBar()
         dataViewModel.setViewDelegate(viewDelegate: self)
         newsTableViewController.dataSource = self
         newsTableViewController.delegate = self
