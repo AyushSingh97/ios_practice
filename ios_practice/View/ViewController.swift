@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     private let dataViewModel = DataViewModel()
     
+    var navigationBarAppearance = UINavigationBar.appearance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // setupNavigationBar()
@@ -21,6 +23,8 @@ class ViewController: UIViewController {
         newsTableViewController.dataSource = self
         newsTableViewController.delegate = self
         dataViewModel.toggleBackground()
+        // appbar.titleView?.backgroundColor = .b
+        
     }
     private func setupNavigationBar(){
         let titleImageView = UIImageView(image: UIImage(named: "GlobalNewsIcon"))
