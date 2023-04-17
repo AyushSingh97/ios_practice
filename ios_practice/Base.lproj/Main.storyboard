@@ -150,9 +150,9 @@
                         <color key="backgroundColor" red="0.85490196078431369" green="0.043137254901960784" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="f1c-BG-fVC" secondAttribute="bottom" id="1zg-3u-dcb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f1c-BG-fVC" secondAttribute="trailing" id="W3E-Pc-zIa"/>
+                            <constraint firstAttribute="trailing" secondItem="f1c-BG-fVC" secondAttribute="trailing" id="QHW-D9-7FC"/>
                             <constraint firstItem="f1c-BG-fVC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="bwZ-vC-cM3"/>
-                            <constraint firstItem="f1c-BG-fVC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uBM-II-BOi"/>
+                            <constraint firstItem="f1c-BG-fVC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h7i-5s-Jdt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hacker News" largeTitleDisplayMode="always" id="mQl-Rd-bSw">
@@ -169,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="886.95652173913049" y="49.553571428571423"/>
         </scene>
-        <!--News Detail View Controller-->
+        <!--Hacker News-->
         <scene sceneID="yRI-F0-Hrk">
             <objects>
                 <viewController storyboardIdentifier="NewsDetailViewController" id="dKp-G1-aM8" customClass="NewsDetailViewController" customModule="ios_practice" customModuleProvider="target" sceneMemberID="viewController">
@@ -178,10 +178,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWR-yz-kXQ" userLabel="Home View">
-                                <rect key="frame" x="16" y="16" width="382" height="864"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <wkWebView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFg-mW-anh">
-                                        <rect key="frame" x="19" y="80" width="363" height="784"/>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFg-mW-anh">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -189,26 +189,27 @@
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="qFg-mW-anh" secondAttribute="bottom" id="XN2-D9-Qgr"/>
-                                    <constraint firstAttribute="trailing" secondItem="qFg-mW-anh" secondAttribute="trailing" id="d5E-4Q-d6a"/>
-                                    <constraint firstItem="qFg-mW-anh" firstAttribute="top" secondItem="mWR-yz-kXQ" secondAttribute="top" id="jXx-mN-dCA"/>
-                                    <constraint firstItem="qFg-mW-anh" firstAttribute="leading" secondItem="mWR-yz-kXQ" secondAttribute="leading" id="nHv-CX-qPT"/>
+                                    <constraint firstItem="qFg-mW-anh" firstAttribute="leading" secondItem="mWR-yz-kXQ" secondAttribute="leading" id="BfI-Wu-bho"/>
+                                    <constraint firstItem="qFg-mW-anh" firstAttribute="top" secondItem="mWR-yz-kXQ" secondAttribute="top" id="CHx-CZ-Zct"/>
+                                    <constraint firstAttribute="trailing" secondItem="qFg-mW-anh" secondAttribute="trailing" id="OF4-Pr-gc0"/>
+                                    <constraint firstItem="qFg-mW-anh" firstAttribute="leading" secondItem="mWR-yz-kXQ" secondAttribute="leading" id="tWO-QI-mJv"/>
+                                    <constraint firstAttribute="trailing" secondItem="qFg-mW-anh" secondAttribute="trailing" id="wZV-gP-Ps1"/>
+                                    <constraint firstAttribute="bottom" secondItem="qFg-mW-anh" secondAttribute="bottom" id="x8q-uw-7dn"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KS8-Dq-yDg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="mWR-yz-kXQ" secondAttribute="bottom" constant="16" id="7U6-OJ-FCm"/>
-                            <constraint firstItem="mWR-yz-kXQ" firstAttribute="leading" secondItem="odr-UV-p3V" secondAttribute="leading" constant="16" id="8fn-OD-j7i"/>
-                            <constraint firstAttribute="trailing" secondItem="mWR-yz-kXQ" secondAttribute="trailing" constant="16" id="q6x-e1-nud"/>
-                            <constraint firstItem="mWR-yz-kXQ" firstAttribute="top" secondItem="odr-UV-p3V" secondAttribute="top" constant="16" id="vmJ-O5-Qoa"/>
-                            <constraint firstItem="KS8-Dq-yDg" firstAttribute="top" secondItem="mWR-yz-kXQ" secondAttribute="top" constant="72" id="wiL-Gw-B7h"/>
+                            <constraint firstAttribute="trailing" secondItem="mWR-yz-kXQ" secondAttribute="trailing" id="4YK-Xg-AwP"/>
+                            <constraint firstAttribute="bottom" secondItem="mWR-yz-kXQ" secondAttribute="bottom" id="DhF-Rg-fGr"/>
+                            <constraint firstItem="mWR-yz-kXQ" firstAttribute="leading" secondItem="odr-UV-p3V" secondAttribute="leading" id="jj4-Z4-pUT"/>
+                            <constraint firstItem="mWR-yz-kXQ" firstAttribute="top" secondItem="KS8-Dq-yDg" secondAttribute="top" id="v1r-AU-lT6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wtQ-1Z-JZy"/>
+                    <navigationItem key="navigationItem" title="Hacker News" largeTitleDisplayMode="always" id="HvX-Dq-UUD"/>
                     <connections>
                         <outlet property="webView" destination="qFg-mW-anh" id="RGo-AC-Euw"/>
                     </connections>
@@ -240,8 +241,8 @@
     </scenes>
     <resources>
         <image name="GlobalNewsIcon" width="40" height="40"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

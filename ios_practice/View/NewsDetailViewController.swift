@@ -24,11 +24,12 @@ class NewsDetailViewController: UIViewController {
             return
         }
         let myRequest = URLRequest(url: myURL)
-        webView.load(myRequest)
+        webView?.load(myRequest)
     }
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        webView.frame = view.bounds
-//    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = view.bounds
+    }
 
 }

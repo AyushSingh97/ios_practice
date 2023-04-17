@@ -52,21 +52,19 @@ class DataViewModel{
                 self.viewDelegate?.showError()
             }
         }
-        //        ApiClient.getDataFromServer { (success, data) in
-        //            self.viewDelegate?.hideLoading()
-        //            if success {
-        //                self.createCell(newsResponseList: data!)
-        //                self.viewDelegate?.reloadNews()
-        //            } else {
-        //                self.viewDelegate?.showError()
-        //            }
-        //        }
     }
     func mapToUi(_ cell: NewsTableViewCell, index: Int, news: NewsUiModel){
         cell.title.text = news.title
         cell.sourceName.text = news.source
         cell.timeStamp.text = news.timeStamp
        cell.newsImage.load(urlString: news.urlImage, placeholderImage: UIImage(named: "PlaceholderImage"))
+    }
+    func openWebView(_ urlString: String, navigationController: UINavigationController?){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newsViewController = storyBoard.instantiateViewController(withIdentifier: "NewsDetailViewController") as! NewsDetailViewController
+        newsViewController.urlString = urlString
+        newsViewController.loadWebView()
+        navigationController?.pushViewController(newsViewController, animated: true)
     }
     // This method returns the number of cells to be displayed in the tableview
     var numberOfCells: Int {
