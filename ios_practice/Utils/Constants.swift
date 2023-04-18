@@ -32,6 +32,6 @@ struct Constants {
         static let accentColor = UIColor(named: "AccentColor")
     }
     struct Images{
-        static let placeHolderImage = "PlaceholderImage"
+        static let placeHolderImage = UIImage(named: "PlaceholderImage")
     }
 }
