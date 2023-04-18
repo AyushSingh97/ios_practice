@@ -8,7 +8,7 @@ extension UIViewController{
         label.textAlignment = .left
         label.textColor = .white
         label.shadowColor = .clear
-        label.text = "Global News"
+        label.text = Constants.appbarTitle
         appbar.titleView = label
     }
 }
