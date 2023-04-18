@@ -9,6 +9,7 @@ class NewsDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         loadWebView()
+        
     }
     
     func loadWebView(){
@@ -24,4 +25,7 @@ class NewsDetailViewController: UIViewController {
         webView.frame = view.bounds
     }
     
+    @IBAction func onBack(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
 }

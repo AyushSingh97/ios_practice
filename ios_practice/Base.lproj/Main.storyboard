@@ -3,12 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hacker News-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ios_practice" customModuleProvider="target" sceneMemberID="viewController">
@@ -131,7 +131,6 @@
                                                     <outlet property="sourceName" destination="3V2-z6-fgh" id="Lut-nb-reK"/>
                                                     <outlet property="timeStamp" destination="WGK-yE-DQg" id="Dxs-Ch-Fuk"/>
                                                     <outlet property="title" destination="FqK-6D-JPg" id="QI7-p8-ay9"/>
-                                                    <segue destination="dKp-G1-aM8" kind="show" id="abK-t6-iLz"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -155,7 +154,7 @@
                             <constraint firstItem="f1c-BG-fVC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h7i-5s-Jdt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hacker News" largeTitleDisplayMode="always" id="mQl-Rd-bSw">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="mQl-Rd-bSw">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="GlobalNewsIcon" style="plain" id="tfc-MR-SUG">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
@@ -169,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="886.95652173913049" y="49.553571428571423"/>
         </scene>
-        <!--Hacker News-->
+        <!--News Detail View Controller-->
         <scene sceneID="yRI-F0-Hrk">
             <objects>
                 <viewController storyboardIdentifier="NewsDetailViewController" id="dKp-G1-aM8" customClass="NewsDetailViewController" customModule="ios_practice" customModuleProvider="target" sceneMemberID="viewController">
@@ -178,10 +177,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWR-yz-kXQ" userLabel="Home View">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFg-mW-anh">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -189,10 +188,11 @@
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.85490196078431369" green="0.043137254901960784" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="qFg-mW-anh" firstAttribute="height" secondItem="mWR-yz-kXQ" secondAttribute="height" id="AY1-34-xs1"/>
                                     <constraint firstItem="qFg-mW-anh" firstAttribute="leading" secondItem="mWR-yz-kXQ" secondAttribute="leading" id="BfI-Wu-bho"/>
-                                    <constraint firstItem="qFg-mW-anh" firstAttribute="top" secondItem="mWR-yz-kXQ" secondAttribute="top" id="CHx-CZ-Zct"/>
+                                    <constraint firstItem="qFg-mW-anh" firstAttribute="width" secondItem="mWR-yz-kXQ" secondAttribute="width" id="HZp-sN-88K"/>
                                     <constraint firstAttribute="trailing" secondItem="qFg-mW-anh" secondAttribute="trailing" id="OF4-Pr-gc0"/>
                                     <constraint firstItem="qFg-mW-anh" firstAttribute="leading" secondItem="mWR-yz-kXQ" secondAttribute="leading" id="tWO-QI-mJv"/>
                                     <constraint firstAttribute="trailing" secondItem="qFg-mW-anh" secondAttribute="trailing" id="wZV-gP-Ps1"/>
@@ -201,7 +201,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KS8-Dq-yDg"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" red="0.85490196078431369" green="0.043137254901960784" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mWR-yz-kXQ" secondAttribute="trailing" id="4YK-Xg-AwP"/>
                             <constraint firstAttribute="bottom" secondItem="mWR-yz-kXQ" secondAttribute="bottom" id="DhF-Rg-fGr"/>
@@ -209,7 +209,17 @@
                             <constraint firstItem="mWR-yz-kXQ" firstAttribute="top" secondItem="KS8-Dq-yDg" secondAttribute="top" id="v1r-AU-lT6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hacker News" largeTitleDisplayMode="always" id="HvX-Dq-UUD"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="6aE-wb-Q7u">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="yxk-jO-3OE">
+                            <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onBack:" destination="dKp-G1-aM8" id="4rR-xS-3Ph"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="qFg-mW-anh" id="RGo-AC-Euw"/>
                     </connections>
@@ -221,6 +231,7 @@
         <!--Navigation Controller-->
         <scene sceneID="an5-BN-jSV">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQI-pR-hXR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xBI-X2-kOs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ra4-a6-7eh">
@@ -234,15 +245,12 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8ue-EN-fqV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gQI-pR-hXR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="49.553571428571423"/>
         </scene>
     </scenes>
     <resources>
         <image name="GlobalNewsIcon" width="40" height="40"/>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
     </resources>
 </document>

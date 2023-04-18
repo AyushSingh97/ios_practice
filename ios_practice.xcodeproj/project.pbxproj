@@ -23,6 +23,7 @@
 		19BDF9E029D2F29000D1B3F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BDF9DF29D2F29000D1B3F7 /* Assets.xcassets */; };
 		19BDF9E329D2F29000D1B3F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BDF9E129D2F29000D1B3F7 /* LaunchScreen.storyboard */; };
 		19FDB4E129EE55200012D92A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDB4E029EE55200012D92A /* Constants.swift */; };
+		19FDB4E329EE6E2A0012D92A /* UIViewController+AppbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDB4E229EE6E2A0012D92A /* UIViewController+AppbarStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		19BDF9E229D2F29000D1B3F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19BDF9E429D2F29000D1B3F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19FDB4E029EE55200012D92A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		19FDB4E229EE6E2A0012D92A /* UIViewController+AppbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AppbarStyle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				19B68C9D29E6CFD700130EF6 /* UIViewController+Extensions.swift */,
 				19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */,
 				19757CF829E91B0A0001E9D5 /* UIImageView+URLLoading.swift */,
+				19FDB4E229EE6E2A0012D92A /* UIViewController+AppbarStyle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				19B9A81129E92FB00068E4A2 /* NewsResponseModel.swift in Sources */,
 				19BDF9D929D2F28500D1B3F7 /* SceneDelegate.swift in Sources */,
 				19B9A80F29E92A6B0068E4A2 /* NewsDetailViewController.swift in Sources */,
+				19FDB4E329EE6E2A0012D92A /* UIViewController+AppbarStyle.swift in Sources */,
 				19757CF729E90D790001E9D5 /* CALayer+Shadow.swift in Sources */,
 				19B68C9A29E6CEFF00130EF6 /* NewsUiModel.swift in Sources */,
 				19FDB4E129EE55200012D92A /* Constants.swift in Sources */,

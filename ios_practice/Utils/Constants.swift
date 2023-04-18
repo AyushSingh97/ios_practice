@@ -12,6 +12,10 @@ struct Constants {
         static let newsDetail = "NewsDetailViewController"
     }
     
+    struct Identifiers {
+        static let newsCell = "newsCell"
+    }
+    
     struct Keys {
         static let apiKey = "apiKey"
     }
@@ -20,6 +24,7 @@ struct Constants {
         static let ok = "Ok"
         static let emptyString = ""
         static let somethingWentWrong = "Something went wrong..."
+        static let cellNotExistInStoryboard = "Cell not exists in storyboard"
     }
     
     struct Colors {

@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
     @IBOutlet weak var appbar: UINavigationItem!
     @IBOutlet weak var newsTableViewController: UITableView!
@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAppbarStyle(appbar)
         dataViewModel.setViewDelegate(viewDelegate: self)
         newsTableViewController.dataSource = self
         newsTableViewController.delegate = self
@@ -29,8 +30,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard var cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsTableViewCell else {
-            fatalError("Cell not exists in storyboard")
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.newsCell, for: indexPath) as? NewsTableViewCell else {
+            fatalError(Constants.Messages.cellNotExistInStoryboard)
         }
         let news = dataViewModel.newsUiModelList[indexPath.row]
         dataViewModel.mapToUi(cell, index: indexPath.row, news: news)
