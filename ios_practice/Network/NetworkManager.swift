@@ -20,10 +20,8 @@ import Foundation
  ```
  */
 class NetworkManager {
-    private let apiKey = "d665ac8e352c4fd1914c09a715c394d9"
-    
     func fetchTopHeadlines(completion: @escaping (Result<NewsResponseModel, Error>) -> Void) {
-        let urlString = "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(apiKey)"
+        let urlString = Constants.baseURL+Constants.Endpoints.topHeadlines+"&\(Constants.Keys.apiKey)="+Constants.apiKey
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.invalidURL))
             return

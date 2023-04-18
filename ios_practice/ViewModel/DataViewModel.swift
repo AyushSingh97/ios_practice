@@ -1,10 +1,3 @@
-//
-//  DataViewModel.swift
-//  ios_practice
-//
-//  Created by Unthinkable-mac-0050 on 12/04/23.
-//
-
 import Foundation
 import UIKit
 
@@ -57,11 +50,11 @@ class DataViewModel{
         cell.title.text = news.title
         cell.sourceName.text = news.source
         cell.timeStamp.text = news.timeStamp
-       cell.newsImage.load(urlString: news.urlImage, placeholderImage: UIImage(named: "PlaceholderImage"))
+        cell.newsImage.load(urlString: news.urlImage, placeholderImage: UIImage(named: Constants.Images.placeHolderImage))
     }
     func openWebView(_ urlString: String, navigationController: UINavigationController?){
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let newsViewController = storyBoard.instantiateViewController(withIdentifier: "NewsDetailViewController") as! NewsDetailViewController
+        let storyBoard = UIStoryboard(name: Constants.ViewControllers.main, bundle: nil)
+        let newsViewController = storyBoard.instantiateViewController(withIdentifier: Constants.ViewControllers.newsDetail) as! NewsDetailViewController
         newsViewController.urlString = urlString
         newsViewController.loadWebView()
         navigationController?.pushViewController(newsViewController, animated: true)
@@ -83,10 +76,7 @@ class DataViewModel{
         var count: Int = 0
         for news in newsResponseModel.articles {
             count+=1
-            print("///////////////////////")
-            print("index: \(count) url: \(news.url?.description ?? "")")
-            print("///////////////////////")
-            vms.append(NewsUiModel(timeStamp: news.publishedAt.description, title: news.title, source: news.source.name, urlImage: news.urlToImage?.description ?? "", sourceUrl: news.url?.description ?? ""))
+            vms.append(NewsUiModel(timeStamp: news.publishedAt.description, title: news.title, source: news.source.name, urlImage: news.urlToImage?.description ?? Constants.Messages.emptyString, sourceUrl: news.url?.description ?? Constants.Messages.emptyString))
         }
         newsUiModelList = vms
     }
