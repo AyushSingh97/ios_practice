@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 protocol ViewDelegate: NSObjectProtocol{
-    func showError()
+    func showError(_ errorMessage: String)
     func showLoading()
     func hideLoading()
     func reloadNews()
@@ -33,54 +33,43 @@ class DataViewModel{
     func isLoading() -> Bool{
         return (self.loading == true) ? true : false
     }
-    func toggleBackground(){
+    func fetchTopHeadlines(){
         self.viewDelegate?.showLoading()
         fetchNewsPaginated()
         
     }
-    func fetchNews(){
-        if(self.isFetching == true){
-            print("Already Fetching...")
-        }
-        
-        else{
-            print("Fetching data...")
-            networkManager.fetchTopHeadlines { result in
-                self.viewDelegate?.hideLoading()
-                self.isFetching = true
-                switch result {
-                case .success(let newsResponse):
-                    self.isFetching = false
-                    self.createCell(newsResponseModel: newsResponse)
-                    self.viewDelegate?.reloadNews()
-                case .failure(let error):
-                    self.isFetching = false
-                    self.viewDelegate?.showError()
+    func fetchNewsPaginated(isPaginated: Bool = true){
+        if(!self.isFetching){
+            if(isPaginated){
+                networkManager.fetchTopHeadlinesPaginated(page: self.pageNumber, pageSize: 5) { result in
+                    self.viewDelegate?.hideLoading()
+                    self.isFetching = true
+                    switch result {
+                    case .success(let newsResponse):
+                        self.isFetching = false
+                        print(newsResponse)
+                        self.createCell(newsResponseModel: newsResponse)
+                        self.viewDelegate?.reloadNews()
+                        self.pageNumber += 1
+                    case .failure(let errorMessage):
+                        self.isFetching = false
+                        self.viewDelegate?.showError(errorMessage.localizedDescription)
+                    }
                 }
             }
-        }
-    }
-    func fetchNewsPaginated(){
-        if(self.isFetching == true){
-            print("Already Fetching...")
-        }
-        
-        else{
-            print("Fetching data...")
-            networkManager.fetchTopHeadlinesPaginated(page: self.pageNumber, pageSize: 5) { result in
-                self.viewDelegate?.hideLoading()
-                self.isFetching = true
-                switch result {
-                case .success(let newsResponse):
-                    self.isFetching = false
-                    print(newsResponse)
-                    self.createCell(newsResponseModel: newsResponse)
-                    self.viewDelegate?.reloadNews()
-                    self.pageNumber += 1
-                case .failure(let error):
-                    self.isFetching = false
-                    print(error)
-                    self.viewDelegate?.showError()
+            else{
+                networkManager.fetchTopHeadlines { result in
+                    self.viewDelegate?.hideLoading()
+                    self.isFetching = true
+                    switch result {
+                    case .success(let newsResponse):
+                        self.isFetching = false
+                        self.createCell(newsResponseModel: newsResponse)
+                        self.viewDelegate?.reloadNews()
+                    case .failure(let errorMessage):
+                        self.isFetching = false
+                        self.viewDelegate?.showError(errorMessage.localizedDescription)
+                    }
                 }
             }
         }
@@ -110,14 +99,9 @@ class DataViewModel{
     
     // This method creates the DataListCellViewModel for each data object and adds them to the cellViewModels array
     func createCell(newsResponseModel: NewsResponseModel){
-        print("/////////////////////////////////////////////")
-        print("TOTAL NEWS: \(self.newsUiModelList.count)")
-        print("/////////////////////////////////////////////")
         self.newsResponseModelList = []
         var vms = [NewsUiModel]()
-        var count: Int = 0
         for news in newsResponseModel.articles {
-            count+=1
             vms.append(NewsUiModel(timeStamp: news.publishedAt.description, title: news.title, source: news.source.name, urlImage: news.urlToImage?.description ?? Constants.Messages.emptyString, sourceUrl: news.url?.description ?? Constants.Messages.emptyString))
         }
         self.newsUiModelList += vms

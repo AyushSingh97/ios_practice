@@ -15,11 +15,11 @@ class ViewController: UIViewController{
         dataViewModel.setViewDelegate(viewDelegate: self)
         newsTableViewController.dataSource = self
         newsTableViewController.delegate = self
-        dataViewModel.toggleBackground()
+        dataViewModel.fetchTopHeadlines()
         
     }
     @IBAction func onTap(_ sender: Any){
-        dataViewModel.toggleBackground()
+        dataViewModel.fetchTopHeadlines()
     }
     
 }
@@ -62,16 +62,16 @@ extension ViewController: UIScrollViewDelegate{
         let scrollViewFrameSize = scrollView.frame.size.height
         let totalTableHeight = newsTableViewController.contentSize.height
         if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
-            dataViewModel.toggleBackground()
+            dataViewModel.fetchTopHeadlines()
         }
     }
 }
 
 
 extension ViewController: ViewDelegate{
-    func showError(){
+    func showError(_ errorMessage: String){
         DispatchQueue.main.async {
-            self.showAlert(Constants.Messages.somethingWentWrong)
+            self.showAlert(errorMessage)
         }
     }
     func showLoading() {
