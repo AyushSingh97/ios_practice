@@ -11,6 +11,9 @@ protocol ViewDelegate: NSObjectProtocol{
 class DataViewModel{
     private var newsUIModel: NewsUiModel?
     private var newsResponseModelList: [NewsResponseModel]
+    private var isFetching = false
+    private var pageNumber = 1
+    private let networkManager = NetworkManager()
     var newsUiModelList: [NewsUiModel] = [NewsUiModel](){
         didSet {
             self.viewDelegate?.reloadNews()
@@ -32,17 +35,53 @@ class DataViewModel{
     }
     func toggleBackground(){
         self.viewDelegate?.showLoading()
-        let networkManager = NetworkManager()
-        networkManager.fetchTopHeadlines { result in
-            self.viewDelegate?.hideLoading()
-            switch result {
-            case .success(let newsResponse):
-                print(newsResponse)
-                self.createCell(newsResponseModel: newsResponse)
-                self.viewDelegate?.reloadNews()
-            case .failure(let error):
-                print(error)
-                self.viewDelegate?.showError()
+        fetchNewsPaginated()
+        
+    }
+    func fetchNews(){
+        if(self.isFetching == true){
+            print("Already Fetching...")
+        }
+        
+        else{
+            print("Fetching data...")
+            networkManager.fetchTopHeadlines { result in
+                self.viewDelegate?.hideLoading()
+                self.isFetching = true
+                switch result {
+                case .success(let newsResponse):
+                    self.isFetching = false
+                    self.createCell(newsResponseModel: newsResponse)
+                    self.viewDelegate?.reloadNews()
+                case .failure(let error):
+                    self.isFetching = false
+                    self.viewDelegate?.showError()
+                }
+            }
+        }
+    }
+    func fetchNewsPaginated(){
+        if(self.isFetching == true){
+            print("Already Fetching...")
+        }
+        
+        else{
+            print("Fetching data...")
+            networkManager.fetchTopHeadlinesPaginated(page: self.pageNumber, pageSize: 5) { result in
+                self.viewDelegate?.hideLoading()
+                self.isFetching = true
+                switch result {
+                case .success(let newsResponse):
+                    self.isFetching = false
+                    print(newsResponse)
+                    self.createCell(newsResponseModel: newsResponse)
+                    self.viewDelegate?.reloadNews()
+                    self.pageNumber += 1
+                case .failure(let error):
+                    self.isFetching = false
+                    print(error)
+                    self.viewDelegate?.showError()
+                }
             }
         }
     }
@@ -71,6 +110,9 @@ class DataViewModel{
     
     // This method creates the DataListCellViewModel for each data object and adds them to the cellViewModels array
     func createCell(newsResponseModel: NewsResponseModel){
+        print("/////////////////////////////////////////////")
+        print("TOTAL NEWS: \(self.newsUiModelList.count)")
+        print("/////////////////////////////////////////////")
         self.newsResponseModelList = []
         var vms = [NewsUiModel]()
         var count: Int = 0
@@ -78,6 +120,6 @@ class DataViewModel{
             count+=1
             vms.append(NewsUiModel(timeStamp: news.publishedAt.description, title: news.title, source: news.source.name, urlImage: news.urlToImage?.description ?? Constants.Messages.emptyString, sourceUrl: news.url?.description ?? Constants.Messages.emptyString))
         }
-        newsUiModelList = vms
+        self.newsUiModelList += vms
     }
 }

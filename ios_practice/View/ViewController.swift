@@ -56,6 +56,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
+extension ViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentScrollYOffset = scrollView.contentOffset.y
+        let scrollViewFrameSize = scrollView.frame.size.height
+        let totalTableHeight = newsTableViewController.contentSize.height
+        if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
+            dataViewModel.toggleBackground()
+        }
+    }
+}
+
 
 extension ViewController: ViewDelegate{
     func showError(){
