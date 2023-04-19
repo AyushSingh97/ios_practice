@@ -59,6 +59,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		198AE04A29EFB254003F8D6B /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
 		19B68C9429E6CE6500130EF6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +77,8 @@
 		19B68C9529E6CE6C00130EF6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				198AE04A29EFB254003F8D6B /* Logging */,
+				19B68C9429E6CE6500130EF6 /* Network */,
 				19FDB4DF29EE54FE0012D92A /* Extensions */,
 				19FDB4E029EE55200012D92A /* Constants.swift */,
 			);
@@ -122,7 +131,6 @@
 		19BDF9D529D2F28500D1B3F7 /* ios_practice */ = {
 			isa = PBXGroup;
 			children = (
-				19B68C9429E6CE6500130EF6 /* Network */,
 				19B68C9529E6CE6C00130EF6 /* Utils */,
 				19B68C9829E6CE8300130EF6 /* Model */,
 				19B68C9629E6CE7500130EF6 /* View */,

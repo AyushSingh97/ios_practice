@@ -3,6 +3,18 @@ struct NewsResponseModel: Codable {
     let status: String
     let totalResults: Int
     let articles: [ArticleModel]
+    func toJson() -> String? {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            
+            do {
+                let data = try encoder.encode(self)
+                return String(data: data, encoding: .utf8)
+            } catch {
+                print(error.localizedDescription)
+                return nil
+            }
+        }
 }
 
 struct ArticleModel: Codable {

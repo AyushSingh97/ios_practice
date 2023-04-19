@@ -47,7 +47,7 @@ class DataViewModel{
                     switch result {
                     case .success(let newsResponse):
                         self.isFetching = false
-                        print(newsResponse)
+                        Logger.instance.log(message: newsResponse.toJson() ?? "")
                         self.createCell(newsResponseModel: newsResponse)
                         self.viewDelegate?.reloadNews()
                         self.pageNumber += 1
