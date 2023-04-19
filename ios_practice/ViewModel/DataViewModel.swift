@@ -53,7 +53,8 @@ class DataViewModel{
                         self.pageNumber += 1
                     case .failure(let errorMessage):
                         self.isFetching = false
-                        self.viewDelegate?.showError(errorMessage.localizedDescription)
+                        Logger.log(errorMessage.message)
+                        self.viewDelegate?.showError(errorMessage.message)
                     }
                 }
             }
