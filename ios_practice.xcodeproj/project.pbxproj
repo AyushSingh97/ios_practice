@@ -10,6 +10,7 @@
 		19757CF529E821950001E9D5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF429E821950001E9D5 /* NewsTableViewCell.swift */; };
 		19757CF729E90D790001E9D5 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */; };
 		19757CF929E91B0A0001E9D5 /* UIImageView+URLLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF829E91B0A0001E9D5 /* UIImageView+URLLoading.swift */; };
+		19A90E9129EFBF9D00662482 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A90E9029EFBF9D00662482 /* Logger.swift */; };
 		19B68C9A29E6CEFF00130EF6 /* NewsUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B68C9929E6CEFF00130EF6 /* NewsUiModel.swift */; };
 		19B68C9C29E6CF1B00130EF6 /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B68C9B29E6CF1B00130EF6 /* DataViewModel.swift */; };
 		19B68C9E29E6CFD700130EF6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B68C9D29E6CFD700130EF6 /* UIViewController+Extensions.swift */; };
@@ -30,6 +31,7 @@
 		19757CF429E821950001E9D5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		19757CF829E91B0A0001E9D5 /* UIImageView+URLLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URLLoading.swift"; sourceTree = "<group>"; };
+		19A90E9029EFBF9D00662482 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		19B68C9929E6CEFF00130EF6 /* NewsUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUiModel.swift; sourceTree = "<group>"; };
 		19B68C9B29E6CF1B00130EF6 /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		19B68C9D29E6CFD700130EF6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		198AE04A29EFB254003F8D6B /* Logging */ = {
 			isa = PBXGroup;
 			children = (
+				19A90E9029EFBF9D00662482 /* Logger.swift */,
 			);
 			path = Logging;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				19B9A80F29E92A6B0068E4A2 /* NewsDetailViewController.swift in Sources */,
 				19FDB4E329EE6E2A0012D92A /* UIViewController+AppbarStyle.swift in Sources */,
 				19757CF729E90D790001E9D5 /* CALayer+Shadow.swift in Sources */,
+				19A90E9129EFBF9D00662482 /* Logger.swift in Sources */,
 				19B68C9A29E6CEFF00130EF6 /* NewsUiModel.swift in Sources */,
 				19FDB4E129EE55200012D92A /* Constants.swift in Sources */,
 				19B68C9E29E6CFD700130EF6 /* UIViewController+Extensions.swift in Sources */,

@@ -55,7 +55,7 @@ class NetworkManager {
         let urlString = Constants.baseURL+Constants.Endpoints.topHeadlines+"&\(Constants.Keys.apiKey)="+Constants.apiKey+"&page=\(page)&pageSize=\(pageSize)"
         
         if(NetworkManager.currentPage < page){
-            Logger.instance.log(message: urlString)
+            Logger.log(urlString)
             NetworkManager.currentPage = page
             guard let url = URL(string: urlString) else {
                 completion(.failure(NetworkError.invalidURL))
