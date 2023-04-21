@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ViewController.toggleBgColor(color:):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DataViewModel.toggleBackground():DataViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(UICachedDeviceRGBColor)data.some.backgroundColor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DataViewModel.createCell(newsResponseModel:):DataViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static ApiClient.getDataFromServer(complete:):ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
