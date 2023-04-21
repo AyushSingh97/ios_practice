@@ -6,6 +6,7 @@ protocol ViewDelegate: NSObjectProtocol{
     func showLoading()
     func hideLoading()
     func reloadNews()
+    func toggleNewsAppearance()
 }
 
 class DataViewModel{
@@ -87,6 +88,9 @@ class DataViewModel{
         newsViewController.urlString = urlString
         newsViewController.loadWebView()
         navigationController?.pushViewController(newsViewController, animated: true)
+    }
+    func changeNewsAppearance(){
+        viewDelegate?.toggleNewsAppearance()
     }
     // This method returns the number of cells to be displayed in the tableview
     var numberOfCells: Int {

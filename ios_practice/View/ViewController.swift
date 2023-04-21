@@ -2,6 +2,7 @@ import UIKit
 
 class ViewController: UIViewController{
     
+    @IBOutlet weak var toggleButton: UIButton!
     @IBOutlet weak var appbar: UINavigationItem!
     @IBOutlet weak var newsTableViewController: UITableView!
     
@@ -12,6 +13,7 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setAppbarStyle(appbar)
+        setToggleButton(toggleButton)
         dataViewModel.setViewDelegate(viewDelegate: self)
         newsTableViewController.dataSource = self
         newsTableViewController.delegate = self
@@ -22,6 +24,9 @@ class ViewController: UIViewController{
         dataViewModel.fetchTopHeadlines()
     }
     
+    @IBAction func onToggle(_ sender: UIButton) {
+        dataViewModel.changeNewsAppearance()
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
@@ -82,5 +87,9 @@ extension ViewController: ViewDelegate{
         DispatchQueue.main.async {
             self.newsTableViewController.reloadData()
         }
+    }
+    func toggleNewsAppearance(){
+        newsTableViewController.isHidden = !(newsTableViewController.isHidden)
+        setToggleButton(toggleButton)
     }
 }

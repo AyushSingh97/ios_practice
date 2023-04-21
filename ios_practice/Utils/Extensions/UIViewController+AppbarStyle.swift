@@ -11,4 +11,13 @@ extension UIViewController{
         label.text = Constants.appbarTitle
         appbar.titleView = label
     }
+    func setToggleButton(_ toggleButton: UIButton!){
+        if(toggleButton.currentImage == Constants.Images.listImageIcon){
+            toggleButton.setImage(Constants.Images.gridImageIcon, for: .normal)
+        }
+        else{
+            toggleButton.setImage(Constants.Images.listImageIcon, for: .normal)
+        }
+        
+    }
 }

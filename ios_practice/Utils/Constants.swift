@@ -34,5 +34,7 @@ struct Constants {
     }
     struct Images{
         static let placeHolderImage = UIImage(named: "PlaceholderImage")
+        static let listImageIcon = UIImage(named: "list")
+        static let gridImageIcon = UIImage(named: "grid")
     }
 }
