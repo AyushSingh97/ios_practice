@@ -14,7 +14,8 @@ struct Constants {
     }
     
     struct Identifiers {
-        static let newsCell = "newsCell"
+        static let newsTableCell = "newsTableCell"
+        static let newsCollectionCell = "newsCollectionCell"
     }
     
     struct Keys {

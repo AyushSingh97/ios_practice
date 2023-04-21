@@ -82,6 +82,12 @@ class DataViewModel{
         cell.timeStamp.text = news.timeStamp
         cell.newsImage.load(urlString: news.urlImage, placeholderImage: Constants.Images.placeHolderImage)
     }
+    func mapToUi(_ cell: NewsCollectionViewCell, index: Int, news: NewsUiModel){
+//        cell.title.text = news.title
+//        cell.sourceName.text = news.source
+//        cell.timeStamp.text = news.timeStamp
+//        cell.newsImage.load(urlString: news.urlImage, placeholderImage: Constants.Images.placeHolderImage)
+    }
     func openWebView(_ urlString: String, navigationController: UINavigationController?){
         let storyBoard = UIStoryboard(name: Constants.ViewControllers.main, bundle: nil)
         let newsViewController = storyBoard.instantiateViewController(withIdentifier: Constants.ViewControllers.newsDetail) as! NewsDetailViewController
