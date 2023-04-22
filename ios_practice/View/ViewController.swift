@@ -20,6 +20,7 @@ class ViewController: UIViewController{
         setNewsTableView()
         setNewsCollectionView()
         dataViewModel.setViewDelegate(viewDelegate: self)
+        dataViewModel.setIsListViewModeActive(toggleButton)
         dataViewModel.fetchTopHeadlines()
     }
     func setNewsTableView(){
@@ -38,6 +39,7 @@ class ViewController: UIViewController{
     
     @IBAction func onToggle(_ sender: UIButton) {
         dataViewModel.changeNewsAppearance()
+        dataViewModel.setIsListViewModeActive(toggleButton)
     }
 }
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
@@ -96,7 +98,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             blur: 30,
             spread: 0)
         cell.mainContentView.layer.applyCornerRadius(radius: 12)
-//        cell..layer.applyCornerRadius(radius: 8)
         return cell
     }
 }
@@ -105,9 +106,22 @@ extension ViewController: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentScrollYOffset = scrollView.contentOffset.y
         let scrollViewFrameSize = scrollView.frame.size.height
-        let totalTableHeight = newsTableViewController.contentSize.height
-        if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
-            dataViewModel.fetchTopHeadlines()
+        var totalTableHeight: CGFloat = 0
+        if(dataViewModel.getIsListViewModeActive()){ // IS LIST VIEW
+            totalTableHeight = newsTableViewController.contentSize.height
+            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
+                dataViewModel.fetchTopHeadlines()
+            }
+    }
+        else{
+            totalTableHeight = newsCollectionViewController.contentSize.height
+//            var a = totalTableHeight - scrollViewFrameSize - 600
+//            var b = currentScrollYOffset
+//            var c = ((b-a)*100)/a
+//            print("% scrolled = \(c)%")
+            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
+                dataViewModel.fetchTopHeadlines()
+            }
         }
     }
 }
@@ -126,10 +140,10 @@ extension ViewController: ViewDelegate{
     func reloadNews() {
         DispatchQueue.main.async {
             self.newsTableViewController.reloadData()
+            self.newsCollectionViewController.reloadData()
         }
     }
     func toggleNewsAppearance(){
-//        newsTableViewController.isHidden = !(newsTableViewController.isHidden)
         tableView.isHidden = !tableView.isHidden
         newsTableViewController.reloadData()
         collectionView.isHidden = !collectionView.isHidden

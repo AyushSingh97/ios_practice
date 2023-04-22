@@ -15,6 +15,7 @@ class DataViewModel{
     private var isFetching = false
     private var pageNumber = 1
     private let networkManager = NetworkManager()
+    private var isListViewModeActive = true
     var newsUiModelList: [NewsUiModel] = [NewsUiModel](){
         didSet {
             self.viewDelegate?.reloadNews()
@@ -38,6 +39,17 @@ class DataViewModel{
         self.viewDelegate?.showLoading()
         fetchNewsPaginated()
         
+    }
+    func setIsListViewModeActive(_ toggleButton: UIButton!){
+        if(toggleButton.currentImage == Constants.Images.listImageIcon){
+            self.isListViewModeActive =  true
+            return
+        }
+        self.isListViewModeActive =  false
+        return
+    }
+    func getIsListViewModeActive() -> Bool{
+        return self.isListViewModeActive
     }
     func fetchNewsPaginated(isPaginated: Bool = true){
         if(!self.isFetching){
