@@ -42,16 +42,16 @@ class ViewController: UIViewController{
 }
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dataViewModel.numberOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.newsCollectionCell, for: indexPath) as? NewsCollectionViewCell else {
             fatalError(Constants.Messages.cellNotExistInStoryboard)
         }
-        // let news = dataViewModel.newsUiModelList[indexPath.row]
-        // dataViewModel.mapToUi(cell, index: indexPath.row, news: news)
-        // cell = beautifyCell(cell)
+        let news = dataViewModel.newsUiModelList[indexPath.row]
+        dataViewModel.mapToUi(cell, index: indexPath.row, news: news)
+        cell = beautifyCell(cell)
         return cell
     }
     
@@ -85,6 +85,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             spread: 0)
         cell.newsMainView.layer.applyCornerRadius(radius: 12)
         cell.newsView.layer.applyCornerRadius(radius: 8)
+        return cell
+    }
+    func beautifyCell(_ cell: NewsCollectionViewCell) -> NewsCollectionViewCell{
+        cell.contentView.layer.applyShadow(
+            color: .black,
+            alpha: 0.1,
+            x: 0,
+            y: 4,
+            blur: 30,
+            spread: 0)
+        cell.mainContentView.layer.applyCornerRadius(radius: 12)
+//        cell..layer.applyCornerRadius(radius: 8)
         return cell
     }
 }
