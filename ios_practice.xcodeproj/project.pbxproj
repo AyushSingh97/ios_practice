@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19341E2929F3AD4800A47A83 /* DebouncerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19341E2829F3AD4800A47A83 /* DebouncerManager.swift */; };
 		19757CF529E821950001E9D5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF429E821950001E9D5 /* NewsTableViewCell.swift */; };
 		19757CF729E90D790001E9D5 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */; };
 		19757CF929E91B0A0001E9D5 /* UIImageView+URLLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19757CF829E91B0A0001E9D5 /* UIImageView+URLLoading.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19341E2829F3AD4800A47A83 /* DebouncerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncerManager.swift; sourceTree = "<group>"; };
 		19757CF429E821950001E9D5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		19757CF629E90D790001E9D5 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		19757CF829E91B0A0001E9D5 /* UIImageView+URLLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URLLoading.swift"; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19341E2729F3AD3500A47A83 /* Debouncer */ = {
+			isa = PBXGroup;
+			children = (
+				19341E2829F3AD4800A47A83 /* DebouncerManager.swift */,
+			);
+			path = Debouncer;
+			sourceTree = "<group>";
+		};
 		198AE04A29EFB254003F8D6B /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 		19B68C9529E6CE6C00130EF6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				19341E2729F3AD3500A47A83 /* Debouncer */,
 				198AE04A29EFB254003F8D6B /* Logging */,
 				19B68C9429E6CE6500130EF6 /* Network */,
 				19FDB4DF29EE54FE0012D92A /* Extensions */,
@@ -249,6 +260,7 @@
 				19FDB4E129EE55200012D92A /* Constants.swift in Sources */,
 				19B68C9E29E6CFD700130EF6 /* UIViewController+Extensions.swift in Sources */,
 				19B68C9C29E6CF1B00130EF6 /* DataViewModel.swift in Sources */,
+				19341E2929F3AD4800A47A83 /* DebouncerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

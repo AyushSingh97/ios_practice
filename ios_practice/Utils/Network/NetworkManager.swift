@@ -20,7 +20,7 @@ import Foundation
  ```
  */
 class NetworkManager {
-    static var currentPage = 0
+    static var currentPage = 1
     func fetchTopHeadlines(completion: @escaping (Result<NewsResponseModel, NetworkError>) -> Void) {
         let urlString = Constants.baseURL+Constants.Endpoints.topHeadlines+"&\(Constants.Keys.apiKey)="+Constants.apiKey
         guard let url = URL(string: urlString) else {
@@ -51,8 +51,10 @@ class NetworkManager {
                 decoder.dateDecodingStrategy = .iso8601
                 let newsResponse = try decoder.decode(NewsResponseModel.self, from: data)
                 completion(.success(newsResponse))
+                return
             } catch {
                 completion(.failure(NetworkError(message: Constants.Messages.somethingWentWrong)))
+                return
             }
         }
         task.resume()
@@ -60,9 +62,8 @@ class NetworkManager {
     func fetchTopHeadlinesPaginated(page: Int, pageSize: Int, completion: @escaping (Result<NewsResponseModel, NetworkError>) -> Void) {
         let urlString = Constants.baseURL+Constants.Endpoints.topHeadlines+"&\(Constants.Keys.apiKey)="+Constants.apiKey+"&page=\(page)&pageSize=\(pageSize)"
         
-        if(NetworkManager.currentPage < page){
+        if(NetworkManager.currentPage == page){
             Logger.log(urlString)
-            NetworkManager.currentPage = page
             guard let url = URL(string: urlString) else {
                 completion(.failure(NetworkError(message: Constants.Messages.somethingWentWrong)))
                 return
@@ -92,7 +93,17 @@ class NetworkManager {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .iso8601
                     let newsResponse = try decoder.decode(NewsResponseModel.self, from: data)
-                    completion(.success(newsResponse))
+                    if(newsResponse.status == "ok"){
+                        if(newsResponse.articles.count < pageSize){
+                            completion(.success(newsResponse))
+                            return
+                        }
+                        NetworkManager.currentPage += 1
+                        completion(.success(newsResponse))
+                        return
+                    }
+                    completion(.failure(NetworkError(message: Constants.Messages.somethingWentWrong)))
+                    return
                 } catch(let e) {
                     print(httpResponse)
                     completion(.failure(NetworkError(message: Constants.Messages.somethingWentWrong)))

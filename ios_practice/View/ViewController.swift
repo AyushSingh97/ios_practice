@@ -13,8 +13,13 @@ class ViewController: UIViewController{
     
     var navigationBarAppearance = UINavigationBar.appearance()
     
+    let apiDebouncer = DebouncerManager(delay: 0.5)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+            apiDebouncer.setCallback({
+                self.dataViewModel.fetchTopHeadlines()
+            })
         setAppbarStyle(appbar)
         setToggleButton(toggleButton)
         setNewsTableView()
@@ -103,27 +108,41 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension ViewController: UIScrollViewDelegate{
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentScrollYOffset = scrollView.contentOffset.y
-        let scrollViewFrameSize = scrollView.frame.size.height
-        var totalTableHeight: CGFloat = 0
-        if(dataViewModel.getIsListViewModeActive()){ // IS LIST VIEW
-            totalTableHeight = newsTableViewController.contentSize.height
-            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
-                dataViewModel.fetchTopHeadlines()
+        // Calculate the bottom offset of the table view
+        let bottomOffset = scrollView.contentOffset.y + scrollView.bounds.height
+        let maxOffset = scrollView.contentSize.height
+        let scrollPercent = (bottomOffset / maxOffset) * 100
+        // Check if the user has scrolled 95% of the way down the table view
+            if scrollPercent >= 80 {
+                // dataViewModel.fetchTopHeadlines()
+                 apiDebouncer.call()
             }
     }
-        else{
-            totalTableHeight = newsCollectionViewController.contentSize.height
-//            var a = totalTableHeight - scrollViewFrameSize - 600
-//            var b = currentScrollYOffset
-//            var c = ((b-a)*100)/a
-//            print("% scrolled = \(c)%")
-            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
-                dataViewModel.fetchTopHeadlines()
-            }
-        }
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let currentScrollYOffset = scrollView.contentOffset.y
+//        let scrollViewFrameSize = scrollView.frame.size.height
+//        var totalTableHeight: CGFloat = 0
+//        if(dataViewModel.getIsListViewModeActive()){ // IS LIST VIEW
+//            totalTableHeight = newsTableViewController.contentSize.height
+//            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
+//                dataViewModel.fetchTopHeadlines()
+//            }
+//    }
+//        else{
+//            totalTableHeight = newsCollectionViewController.contentSize.height
+////            var a = totalTableHeight - scrollViewFrameSize - 600
+////            var b = currentScrollYOffset
+////            var c = ((b-a)*100)/a
+////            print("% scrolled = \(c)%")
+//            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize + 50){
+//                DebouncerManager(delay: 1).setCallback({
+//                    self.dataViewModel.fetchTopHeadlines()
+//                })
+//            }
+//        }
+//    }
 }
 
 

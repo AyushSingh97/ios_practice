@@ -3,7 +3,10 @@ import UIKit
 struct Constants {
     static let baseURL = "https://newsapi.org"
     static let appbarTitle = "Global News"
-    static let apiKey = "d665ac8e352c4fd1914c09a715c394d9"
+    ///
+    /// Get Api Key from: https://newsapi.org/register
+    ///
+    static let apiKey = "d22285cdb51247b49a95df82e268f38f"
     struct Endpoints {
         static let topHeadlines = "/v2/top-headlines?country=us"
     }
