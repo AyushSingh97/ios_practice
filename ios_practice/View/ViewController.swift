@@ -61,6 +61,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
         cell = beautifyCell(cell)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        dataViewModel.openWebView(dataViewModel.newsUiModelList[indexPath.row].sourceUrl, navigationController: navigationController)
+    }
     
     
 }
@@ -114,35 +117,11 @@ extension ViewController: UIScrollViewDelegate{
         let bottomOffset = scrollView.contentOffset.y + scrollView.bounds.height
         let maxOffset = scrollView.contentSize.height
         let scrollPercent = (bottomOffset / maxOffset) * 100
-        // Check if the user has scrolled 95% of the way down the table view
+        // Check if the user has scrolled 80% of the way down the table view
             if scrollPercent >= 80 {
-                // dataViewModel.fetchTopHeadlines()
                  apiDebouncer.call()
             }
     }
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let currentScrollYOffset = scrollView.contentOffset.y
-//        let scrollViewFrameSize = scrollView.frame.size.height
-//        var totalTableHeight: CGFloat = 0
-//        if(dataViewModel.getIsListViewModeActive()){ // IS LIST VIEW
-//            totalTableHeight = newsTableViewController.contentSize.height
-//            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize - 300){
-//                dataViewModel.fetchTopHeadlines()
-//            }
-//    }
-//        else{
-//            totalTableHeight = newsCollectionViewController.contentSize.height
-////            var a = totalTableHeight - scrollViewFrameSize - 600
-////            var b = currentScrollYOffset
-////            var c = ((b-a)*100)/a
-////            print("% scrolled = \(c)%")
-//            if(currentScrollYOffset > totalTableHeight - scrollViewFrameSize + 50){
-//                DebouncerManager(delay: 1).setCallback({
-//                    self.dataViewModel.fetchTopHeadlines()
-//                })
-//            }
-//        }
-//    }
 }
 
 
