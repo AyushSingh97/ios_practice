@@ -42,14 +42,14 @@ class ViewController: UIViewController{
 }
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataViewModel.numberOfCells
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.newsCollectionCell, for: indexPath) as? NewsCollectionViewCell else {
             fatalError(Constants.Messages.cellNotExistInStoryboard)
         }
-        let news = dataViewModel.newsUiModelList[indexPath.row]
+        // let news = dataViewModel.newsUiModelList[indexPath.row]
         // dataViewModel.mapToUi(cell, index: indexPath.row, news: news)
         // cell = beautifyCell(cell)
         return cell
