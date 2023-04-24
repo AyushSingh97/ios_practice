@@ -14,50 +14,18 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="Home View Controller" customClass="ViewController" customModule="ios_practice" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r3Q-Uw-vNV">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r3Q-Uw-vNV">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oya-kA-L1K" userLabel="Header">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gP-3W-7jg" userLabel="Button View">
-                                                <rect key="frame" x="326" y="0.0" width="72" height="0.0"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHI-z9-amp" userLabel="Toggle Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="0.0"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="grid"/>
-                                                        <connections>
-                                                            <action selector="onToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m17-eW-Alh"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="UHI-z9-amp" secondAttribute="trailing" id="DFJ-tV-ALt"/>
-                                                    <constraint firstItem="UHI-z9-amp" firstAttribute="leading" secondItem="5gP-3W-7jg" secondAttribute="leading" id="Pe4-eI-h51"/>
-                                                    <constraint firstAttribute="bottom" secondItem="UHI-z9-amp" secondAttribute="bottom" id="SOr-As-mXH"/>
-                                                    <constraint firstItem="UHI-z9-amp" firstAttribute="top" secondItem="5gP-3W-7jg" secondAttribute="top" id="kTr-wU-mdr"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="5gP-3W-7jg" secondAttribute="trailing" constant="16" id="Dp6-Bs-CgE"/>
-                                            <constraint firstItem="5gP-3W-7jg" firstAttribute="height" secondItem="oya-kA-L1K" secondAttribute="height" id="RB4-1b-Rkj"/>
-                                            <constraint firstItem="5gP-3W-7jg" firstAttribute="width" secondItem="oya-kA-L1K" secondAttribute="width" multiplier="0.173913" id="ZwB-Tk-5ut"/>
-                                            <constraint firstItem="5gP-3W-7jg" firstAttribute="top" secondItem="oya-kA-L1K" secondAttribute="top" id="x4N-Ri-WIv"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" id="PRe-Ay-mrG" userLabel="News Table View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                    <view contentMode="scaleToFill" id="PRe-Ay-mrG" userLabel="News Table View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="727"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mvr-6s-jEM">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mvr-6s-jEM">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="788"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,11 +152,11 @@
                                             <constraint firstAttribute="trailing" secondItem="mvr-6s-jEM" secondAttribute="trailing" id="hmT-Xs-snJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0g-L4-WGp" userLabel="News Collection View">
-                                        <rect key="frame" x="0.0" y="81" width="414" height="727"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0g-L4-WGp" userLabel="News Collection View">
+                                        <rect key="frame" x="0.0" y="727" width="414" height="81"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lmV-c7-j11">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="727"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lmV-c7-j11">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
                                                 <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GG5-vd-LW4">
                                                     <size key="itemSize" width="150" height="150"/>
@@ -271,9 +239,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="oya-kA-L1K" firstAttribute="height" secondItem="r3Q-Uw-vNV" secondAttribute="height" multiplier="0.1" id="fGn-2F-xen"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -286,8 +251,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="mQl-Rd-bSw">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="GlobalNewsIcon" style="plain" id="tfc-MR-SUG">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="GlobalNewsIcon" style="plain" id="tfc-MR-SUG" userLabel="Logo Item">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="This is More button" image="list" id="5cX-A7-CUu">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onToggle:" destination="BYZ-38-t0r" id="Wnq-nc-gG4"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -296,7 +268,7 @@
                         <outlet property="newsCollectionViewController" destination="lmV-c7-j11" id="dM9-Tp-7lV"/>
                         <outlet property="newsTableViewController" destination="mvr-6s-jEM" id="DSP-Jv-H1G"/>
                         <outlet property="tableView" destination="PRe-Ay-mrG" id="9O6-zr-gza"/>
-                        <outlet property="toggleButton" destination="UHI-z9-amp" id="OrN-cb-zVf"/>
+                        <outlet property="toggleButton" destination="5cX-A7-CUu" id="a2R-hP-hkT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -316,7 +288,7 @@
                                 <subviews>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFg-mW-anh">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                             <wkPreferences key="preferences"/>
@@ -397,10 +369,7 @@
     <resources>
         <image name="GlobalNewsIcon" width="40" height="40"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="grid" width="32" height="32"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="list" width="32" height="32"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

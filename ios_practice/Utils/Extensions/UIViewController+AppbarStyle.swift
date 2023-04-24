@@ -5,18 +5,19 @@ extension UIViewController{
         label.font = UIFont.boldSystemFont(ofSize: 24.0)
         label.numberOfLines = 2
         label.backgroundColor = .clear
+//        label.transform.translatedBy(x: 10, y: 0)
         label.textAlignment = .left
         label.textColor = .white
         label.shadowColor = .clear
         label.text = Constants.appbarTitle
         appbar.titleView = label
     }
-    func setToggleButton(_ toggleButton: UIButton!){
-        if(toggleButton.currentImage == Constants.Images.listImageIcon){
-            toggleButton.setImage(Constants.Images.gridImageIcon, for: .normal)
+    func setToggleButton(_ toggleButton: UIBarButtonItem!){
+        if(toggleButton.image == Constants.Images.listImageIcon){
+            toggleButton.image = Constants.Images.gridImageIcon
         }
         else{
-            toggleButton.setImage(Constants.Images.listImageIcon, for: .normal)
+            toggleButton.image = Constants.Images.listImageIcon
         }
         
     }

@@ -4,7 +4,8 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var tableView: UIView!
     @IBOutlet weak var collectionView: UIView!
-    @IBOutlet weak var toggleButton: UIButton!
+    
+    @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var appbar: UINavigationItem!
     @IBOutlet weak var newsTableViewController: UITableView!
     
@@ -41,8 +42,8 @@ class ViewController: UIViewController{
     @IBAction func onTap(_ sender: Any){
         dataViewModel.fetchTopHeadlines()
     }
-    
-    @IBAction func onToggle(_ sender: UIButton) {
+
+    @IBAction func onToggle(_ sender: UIBarButtonItem) {
         dataViewModel.changeNewsAppearance()
         dataViewModel.setIsListViewModeActive(toggleButton)
     }

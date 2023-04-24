@@ -40,8 +40,8 @@ class DataViewModel{
         fetchNewsPaginated()
         
     }
-    func setIsListViewModeActive(_ toggleButton: UIButton!){
-        if(toggleButton.currentImage == Constants.Images.listImageIcon){
+    func setIsListViewModeActive(_ toggleButton: UIBarButtonItem!){
+        if(toggleButton.image == Constants.Images.listImageIcon){
             self.isListViewModeActive =  true
             return
         }
