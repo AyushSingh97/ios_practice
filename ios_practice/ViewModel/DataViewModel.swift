@@ -14,7 +14,7 @@ class DataViewModel{
     private var newsResponseModelList: [NewsResponseModel]
     private var isFetching = false
     private var pageNumber = 1
-    private let networkManager = NetworkManager()
+    private let networkManager = NetworkManagerFactory.createNetworkManager(type: .alamofire)
     private var isListViewModeActive = true
     var newsUiModelList: [NewsUiModel] = [NewsUiModel](){
         didSet {
