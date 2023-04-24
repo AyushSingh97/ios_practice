@@ -48,7 +48,7 @@ class ViewController: UIViewController{
         dataViewModel.setIsListViewModeActive(toggleButton)
     }
 }
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataViewModel.numberOfCells
     }
@@ -65,6 +65,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         dataViewModel.openWebView(dataViewModel.newsUiModelList[indexPath.row].sourceUrl, navigationController: navigationController)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let aspectRatio: CGFloat = 343/274
+        let width = (self.view.frame.width - 48)/2
+        let height = width/aspectRatio
+            return CGSize(width: width, height: height)
+        }
     
     
 }
