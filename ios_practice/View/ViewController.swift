@@ -114,6 +114,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             blur: 30,
             spread: 0)
         cell.mainContentView.layer.applyCornerRadius(radius: 12)
+        cell.newsImageView.layer.applyCornerRadius(radius: 12)
         return cell
     }
 }
