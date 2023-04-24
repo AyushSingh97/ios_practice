@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController{
+class HomeViewController: UIViewController{
     
     @IBOutlet weak var tableView: UIView!
     @IBOutlet weak var collectionView: UIView!
@@ -48,7 +48,7 @@ class ViewController: UIViewController{
         dataViewModel.setIsListViewModeActive(toggleButton)
     }
 }
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataViewModel.numberOfCells
     }
@@ -75,7 +75,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     
 }
-extension ViewController: UITableViewDataSource, UITableViewDelegate{
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataViewModel.numberOfCells
     }
@@ -119,7 +119,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
-extension ViewController: UIScrollViewDelegate{
+extension HomeViewController: UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // Calculate the bottom offset of the table view
@@ -134,7 +134,7 @@ extension ViewController: UIScrollViewDelegate{
 }
 
 
-extension ViewController: ViewDelegate{
+extension HomeViewController: ViewDelegate{
     func showError(_ errorMessage: String){
         DispatchQueue.main.async {
             self.showAlert(errorMessage)
