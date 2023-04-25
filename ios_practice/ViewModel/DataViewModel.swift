@@ -94,7 +94,7 @@ class DataViewModel{
         cell.timeStamp.text = news.timeStamp
         cell.newsImage.load(urlString: news.urlImage, placeholderImage: Constants.Images.placeHolderImage)
     }
-    func mapToUi(_ cell: NewsCollectionViewCell, index: Int, news: NewsUiModel){
+    func mapToUi(_ cell: NewCollectionViewCell, index: Int, news: NewsUiModel){
         cell.newsTitle.text = news.title
         cell.newsImageView.load(urlString: news.urlImage, placeholderImage: Constants.Images.placeHolderImage)
     }

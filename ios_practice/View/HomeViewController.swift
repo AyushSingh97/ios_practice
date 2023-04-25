@@ -37,7 +37,12 @@ class HomeViewController: UIViewController{
     func setNewsCollectionView(){
         newsCollectionViewController.dataSource = self
         newsCollectionViewController.delegate = self
+        initializeCollectionCell()
         collectionView.isHidden = true
+    }
+    func initializeCollectionCell(){
+        let nibCell = UINib(nibName: Constants.ViewControllers.newCollectionViewCell, bundle: nil)
+        newsCollectionViewController.register(nibCell, forCellWithReuseIdentifier: Constants.Identifiers.newCollectionCell)
     }
     @IBAction func onTap(_ sender: Any){
         dataViewModel.fetchTopHeadlines()
@@ -54,7 +59,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.newsCollectionCell, for: indexPath) as? NewsCollectionViewCell else {
+        guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.newCollectionCell, for: indexPath) as? NewCollectionViewCell else {
             fatalError(Constants.Messages.cellNotExistInStoryboard)
         }
         let news = dataViewModel.newsUiModelList[indexPath.row]
@@ -105,7 +110,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         cell.newsView.layer.applyCornerRadius(radius: 8)
         return cell
     }
-    func beautifyCell(_ cell: NewsCollectionViewCell) -> NewsCollectionViewCell{
+    func beautifyCell(_ cell: NewCollectionViewCell) -> NewCollectionViewCell{
         cell.contentView.layer.applyShadow(
             color: .black,
             alpha: 0.1,
