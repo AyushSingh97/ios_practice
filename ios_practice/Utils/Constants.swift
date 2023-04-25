@@ -14,13 +14,12 @@ struct Constants {
     struct ViewControllers {
         static let main = "Main"
         static let newsDetail = "NewsDetailViewController"
-        static let newCollectionViewCell = "NewCollectionViewCell"
+        static let newsCollectionViewCell = "NewsCollectionViewCell"
     }
     
     struct Identifiers {
         static let newsTableCell = "newsTableCell"
-        static let newsCollectionCell = "newsCollectionCell"
-        static let newCollectionCell = "newNewsCollectionCell"
+        static let newsCollectionViewCell = "newsCollectionViewCell"
     }
     
     struct Keys {
