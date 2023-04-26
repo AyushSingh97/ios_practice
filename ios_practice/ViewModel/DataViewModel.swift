@@ -15,6 +15,7 @@ class DataViewModel{
     private var isFetching = false
     private var pageNumber = 1
     private let networkManager = NetworkManagerFactory.createNetworkManager(type: .alamofire)
+    private let gcdManager = GCDManagerFactory.create(.operationQueue(label: "com.example.myqueue", qos: .background))
     private var isListViewModeActive = true
     var newsUiModelList: [NewsUiModel] = [NewsUiModel](){
         didSet {
@@ -52,8 +53,7 @@ class DataViewModel{
         return self.isListViewModeActive
     }
     func fetchNewsPaginated(isPaginated: Bool = true){
-        GCDManagerFactory.run({
-            
+        gcdManager.run {
             if(!self.isFetching){
                 if(isPaginated){
                     self.networkManager.fetchTopHeadlinesPaginated(page: self.pageNumber, pageSize: 5) { result in
@@ -89,8 +89,7 @@ class DataViewModel{
                     }
                 }
             }
-            
-        }, label: "API Call", qos: .userInteractive)
+        }
     }
     func mapToUi(_ cell: NewsTableViewCell, index: Int, news: NewsUiModel){
         cell.title.text = news.title

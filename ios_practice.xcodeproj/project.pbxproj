@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1921DDDF29F912F800D720F3 /* GCDManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921DDDE29F912F800D720F3 /* GCDManagerFactory.swift */; };
+		1921DDDF29F912F800D720F3 /* GCDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921DDDE29F912F800D720F3 /* GCDManager.swift */; };
+		1921DDE129F918EE00D720F3 /* OperationQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921DDE029F918EE00D720F3 /* OperationQueueManager.swift */; };
+		1921DDE329F9191000D720F3 /* DispatchQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921DDE229F9191000D720F3 /* DispatchQueueManager.swift */; };
 		19341E2929F3AD4800A47A83 /* DebouncerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19341E2829F3AD4800A47A83 /* DebouncerManager.swift */; };
 		1966FEFE29F7E32B00B76D61 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966FEFC29F7E32B00B76D61 /* NewsCollectionViewCell.swift */; };
 		1966FEFF29F7E32B00B76D61 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1966FEFD29F7E32B00B76D61 /* NewsCollectionViewCell.xib */; };
@@ -35,7 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1921DDDE29F912F800D720F3 /* GCDManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDManagerFactory.swift; sourceTree = "<group>"; };
+		1921DDDE29F912F800D720F3 /* GCDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDManager.swift; sourceTree = "<group>"; };
+		1921DDE029F918EE00D720F3 /* OperationQueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueManager.swift; sourceTree = "<group>"; };
+		1921DDE229F9191000D720F3 /* DispatchQueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueManager.swift; sourceTree = "<group>"; };
 		19341E2829F3AD4800A47A83 /* DebouncerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncerManager.swift; sourceTree = "<group>"; };
 		1966FEFC29F7E32B00B76D61 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		1966FEFD29F7E32B00B76D61 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -89,7 +93,9 @@
 		1921DDDD29F912C200D720F3 /* GCDManager */ = {
 			isa = PBXGroup;
 			children = (
-				1921DDDE29F912F800D720F3 /* GCDManagerFactory.swift */,
+				1921DDDE29F912F800D720F3 /* GCDManager.swift */,
+				1921DDE029F918EE00D720F3 /* OperationQueueManager.swift */,
+				1921DDE229F9191000D720F3 /* DispatchQueueManager.swift */,
 			);
 			path = GCDManager;
 			sourceTree = "<group>";
@@ -335,8 +341,9 @@
 			files = (
 				19757CF929E91B0A0001E9D5 /* UIImageView+URLLoading.swift in Sources */,
 				19BDF9DB29D2F28500D1B3F7 /* HomeViewController.swift in Sources */,
+				1921DDE329F9191000D720F3 /* DispatchQueueManager.swift in Sources */,
 				19B9A81329E966950068E4A2 /* NetworkManagerFactory.swift in Sources */,
-				1921DDDF29F912F800D720F3 /* GCDManagerFactory.swift in Sources */,
+				1921DDDF29F912F800D720F3 /* GCDManager.swift in Sources */,
 				1966FEFE29F7E32B00B76D61 /* NewsCollectionViewCell.swift in Sources */,
 				19757CF529E821950001E9D5 /* NewsTableViewCell.swift in Sources */,
 				1984E48A29F6B70A004AA76D /* DefaultNetworkManager.swift in Sources */,
@@ -344,6 +351,7 @@
 				19B9A81129E92FB00068E4A2 /* NewsResponseModel.swift in Sources */,
 				19BDF9D929D2F28500D1B3F7 /* SceneDelegate.swift in Sources */,
 				19B9A80F29E92A6B0068E4A2 /* NewsDetailViewController.swift in Sources */,
+				1921DDE129F918EE00D720F3 /* OperationQueueManager.swift in Sources */,
 				19FDB4E329EE6E2A0012D92A /* UIViewController+AppbarStyle.swift in Sources */,
 				19757CF729E90D790001E9D5 /* CALayer+Shadow.swift in Sources */,
 				19A90E9129EFBF9D00662482 /* Logger.swift in Sources */,
