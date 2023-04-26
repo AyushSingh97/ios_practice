@@ -52,41 +52,45 @@ class DataViewModel{
         return self.isListViewModeActive
     }
     func fetchNewsPaginated(isPaginated: Bool = true){
-        if(!self.isFetching){
-            if(isPaginated){
-                networkManager.fetchTopHeadlinesPaginated(page: self.pageNumber, pageSize: 5) { result in
-                    self.viewDelegate?.hideLoading()
-                    self.isFetching = true
-                    switch result {
-                    case .success(let newsResponse):
-                        self.isFetching = false
-                        Logger.log(newsResponse.toJson() ?? Constants.Messages.emptyString)
-                        self.createCell(newsResponseModel: newsResponse)
-                        self.viewDelegate?.reloadNews()
-                        self.pageNumber += 1
-                    case .failure(let errorMessage):
-                        self.isFetching = false
-                        Logger.log(errorMessage.message)
-                        self.viewDelegate?.showError(errorMessage.message)
+        GCDManagerFactory.run({
+            
+            if(!self.isFetching){
+                if(isPaginated){
+                    self.networkManager.fetchTopHeadlinesPaginated(page: self.pageNumber, pageSize: 5) { result in
+                        self.viewDelegate?.hideLoading()
+                        self.isFetching = true
+                        switch result {
+                        case .success(let newsResponse):
+                            self.isFetching = false
+                            Logger.log(newsResponse.toJson() ?? Constants.Messages.emptyString)
+                            self.createCell(newsResponseModel: newsResponse)
+                            self.viewDelegate?.reloadNews()
+                            self.pageNumber += 1
+                        case .failure(let errorMessage):
+                            self.isFetching = false
+                            Logger.log(errorMessage.message)
+                            self.viewDelegate?.showError(errorMessage.message)
+                        }
+                    }
+                }
+                else{
+                    self.networkManager.fetchTopHeadlines { result in
+                        self.viewDelegate?.hideLoading()
+                        self.isFetching = true
+                        switch result {
+                        case .success(let newsResponse):
+                            self.isFetching = false
+                            self.createCell(newsResponseModel: newsResponse)
+                            self.viewDelegate?.reloadNews()
+                        case .failure(let errorMessage):
+                            self.isFetching = false
+                            self.viewDelegate?.showError(errorMessage.localizedDescription)
+                        }
                     }
                 }
             }
-            else{
-                networkManager.fetchTopHeadlines { result in
-                    self.viewDelegate?.hideLoading()
-                    self.isFetching = true
-                    switch result {
-                    case .success(let newsResponse):
-                        self.isFetching = false
-                        self.createCell(newsResponseModel: newsResponse)
-                        self.viewDelegate?.reloadNews()
-                    case .failure(let errorMessage):
-                        self.isFetching = false
-                        self.viewDelegate?.showError(errorMessage.localizedDescription)
-                    }
-                }
-            }
-        }
+            
+        }, label: "API Call", qos: .userInteractive)
     }
     func mapToUi(_ cell: NewsTableViewCell, index: Int, news: NewsUiModel){
         cell.title.text = news.title
