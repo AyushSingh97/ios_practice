@@ -1,3 +1,24 @@
+/**
+ This file defines a Constants struct that contains various constants used in the project.
+ 
+ The baseURL constant contains the base URL of the News API used in the project.
+ The appbarTitle constant contains the title of the appbar used in the project.
+ The apiKey constant contains the API key for the News API. It is obtained from the News API website.
+ 
+ The Endpoints struct contains the endpoint for fetching top headlines from the News API.
+ 
+ The ViewControllers struct contains the storyboard identifiers for the view controllers used in the project.
+ 
+ The Identifiers struct contains the reuse identifiers for the table view cell and collection view cell used in the project.
+ 
+ The Keys struct contains the key for the API key parameter used in the project.
+ 
+ The Messages struct contains various messages used in the project.
+ 
+ The Colors struct contains the accent color used in the project, which is obtained from the Assets folder.
+ 
+ The Images struct contains the placeholder image used in the project and the icons for the list and grid view modes.
+ */
 import UIKit
 
 struct Constants {
